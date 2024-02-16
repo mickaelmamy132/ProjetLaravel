@@ -1,0 +1,483 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  a{
+    text-decoration: none;
+  }
+  li{
+    list-style: none;
+  }
+  body{
+    background: #eee;
+  }
+  
+  
+   
+  
+  
+  /* sidebar */
+  #sidebar{
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 280px;
+    background: #f9f9f9;
+    z-index: 1000;
+    transition: .3s ease;
+    overflow-x: hidden;
+  }
+  #sidebar.hide{
+    width: 60px;
+  }
+  #sidebar .brand{
+    font-size: 24px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: #3c91e6;
+  }
+  #sidebar .brand .fa{
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  #sidebar .side-menu{
+    width: 100%;
+    margin-top: 48px;
+    padding: 1px;
+  }
+  #sidebar .side-menu li{
+    height: 48px;
+    margin-left: 6px;
+    background: transparent;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+  }
+  #sidebar .side-menu li.active{
+    background: #eee;
+    position: relative;
+  }
+  
+  #sidebar .side-menu li.active::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 #eee;
+    z-index: -1;
+  }
+  #sidebar .side-menu li.active::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 #eee;
+    z-index: -1;
+  }
+  #sidebar .side-menu li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 48px;
+    font-size: 16px;
+    color: #342e37;
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+  
+  #sidebar .side-menu li.active a{
+    color: #3c91e6;
+  }
+  #sidebar.hide .side-menu li a{
+    width: calc(48px - (4px * 2));
+    
+  }
+  #sidebar.hide .side-menu li.active a{
+    color: #3c91e6;
+    transition: width .3 ease;
+  }
+  #sidebar .side-menu.top li a:hover{
+    color: #3c91e6;
+  }
+  #sidebar .side-menu li a.quitte{
+    color: #b4212e;
+  }
+  #sidebar .side-menu li a .fa{
+    min-width: calc(60px - (4px + 6px * 2));
+    display: flex;
+    justify-content: center;
+  }
+  /* fin sidebar */
+  
+  
+  
+  
+  
+  
+  /* debut de content */
+  #content{
+    width: calc(100% - 280px);
+    position: relative;
+    left: 280px;
+    transition: .3s ease;
+  }
+  #sidebar.hide ~ #content{
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+  
+  /* navbar */
+  #content .navbar{
+    height: 56px;
+    background: #f9f9f9;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    position: relative;
+  } 
+  #content .navbar .fa{
+    cursor: pointer;
+  }
+  #content .navbar::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -40px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -20px -20px 0 #f9f9f9;
+  }
+  #content .navbar a{
+    color: #342e37;
+  }
+  #content .navbar .nav-link{
+    font-size: 18px;
+    transition: .3s ease;
+    margin-right: 500px; 
+  }
+  #content .navbar .nav-link:hover{
+    color: #3c91e6;
+  }
+  #content .navbar form{
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+  }
+  #content .navbar form .form-input{
+    display: flex;
+    align-items: center;
+    height: 36px;
+  }
+  #content .navbar form .form-input input{
+    flex-grow: 1;
+    padding: 0 16px;
+    height: 100%;
+    border: none;
+    border-radius: 36px 0 0 36px;
+    outline: none;
+  }
+  #content .navbar form .form-input button{
+    background: #3c91e6;
+    color: #f9f9f9;
+    width: 36px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 0 36px 36px 0;
+    cursor: pointer;
+  }
+  #content .navbar .notification{
+    position: relative;
+    font-size: 20px;
+  }
+  #content .navbar .notification .num{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #f9f9f9;
+    background: rgb(146, 16, 16);
+    font-weight: 700;
+    font-size: 12px;
+    color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }   
+  #content .navbar .profile img{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  /* fin navbar */
+  /* fin de content */
+  
+  
+  
+  
+  
+  
+  /* contenus principale */
+  #content main{
+    width: 100%;
+    padding: 3px 24px;
+  }
+  #content main .head-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 18px;
+    flex-wrap: nowrap;
+  }
+  #content main .head-title .left h1{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #342e37;
+  }
+  #content main .head-title .left .breadcrum{
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+  }
+  #content main .head-title .left .breadcrum li a{
+    color: #342e37;
+  
+  }
+  #content main .head-title .left .breadcrum li a{
+    color: #aaaaaa;
+    pointer-events: none;
+  }
+  #content main .head-title .left .breadcrum li a.active{
+    color: #3c91e6;
+    pointer-events: unset;
+  }
+  #content main .head-title .btn-telecharger{
+    height: 36px;
+    padding: 0 36px;
+    border-radius: 36px;
+    background: #3c91e6;
+    display: flex;
+    color: #f9f9f9;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 500;
+  }
+  #content main .box-info{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
+  }
+  #content main .box-info li{
+    padding: 24px;
+    background: #f9f9f9;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+  }
+  #content main .box-info li .text h3{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  #content main .box-info li .fa{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background: #eee;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #content main .box-info li:nth-child(1) .fa{
+    background: #cfe8ff;
+    color: #3c91e6;
+  }
+  #content main .box-info li:nth-child(2) .fa{
+    background: #fff2c6;
+    color: #ffce26;
+  }
+  #content main .box-info li:nth-child(3) .fa{
+    background: #ffe0d3;
+    color:#fd7200;
+  }
+  #content main .table-data {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-left: 24px;
+    width: 85%;
+    color: #342e37;
+}
+
+#content main .table-data .head {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 5px;
+    /* min-width: 420px; */
+}
+
+#content main .table-data .head h3 {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#content main .table-data > div {
+    border-radius: 20px;
+    background: #f9f9f9;
+    padding: 24px;
+    overflow-x: auto;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+
+#content main .table-data .todo {
+  flex-grow: 1;
+  flex-basis: 200px;
+  margin-left: auto; /* Ajout de margin-left: auto; */
+  margin-right: auto; /* Ajout de margin-right: auto; */
+  position: relative;
+  left: 70px;
+}
+
+#content main .table-data .todo form {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto; /* Ajout de margin-left: auto; */
+  margin-right: auto;
+}
+#content main .table-data .todo form.m {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto; /* Utilisation de margin: auto pour centrer horizontalement */
+}
+#content main .table-data .todo form.m .form-actions {
+  display: flex;
+  justify-content: center; /* Utilisation de justify-content: center pour centrer horizontalement les éléments du formulaire */
+  margin-top: 10px; /* Ajout d'une marge en haut pour l'espace */
+}
+
+#content main .table-data .todo form.m .form-actions button.btn {
+  margin-right: 10px;
+}
+#content main .table-data .todo form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#content main .table-data .todo form .form-actions button {
+  margin-right: 10px; /* Ajustez la marge selon vos besoins */
+}
+#content main .table-data .todo form .form-actions a{
+  margin-right: 10px; /* Ajustez la marge selon vos besoins */
+}
+
+#content main .table-data .todo form .form-input label {
+  margin-right: 10px;
+  /* margin-left: 40px; */
+}
+
+#content main .table-data .todo form .form-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  margin-bottom: 15px;
+}
+
+#content main .table-data .todo form .form-input input {
+  flex-grow: 1;
+  padding: 0 20px;
+  height: 100%;
+  border: none;
+  border-radius: 36px;
+  outline: auto;
+  margin-right: 10px;
+  /* width:100%; */
+  min-width: 100px;
+}
+#content main .table-data .todo form .form-input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}  
+#content main .table-data .todo form .form-input-group.labell {
+  margin-right: auto;
+}  
+  /* fin contenus principale */
+  
+  
+  
+  
+  
+  @media screen and (max-width : 768px) {
+    #content{
+      width: calc(100% - 60px);
+    }
+    #content .navbar .nav-link{
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width : 576px) {
+    
+    #content .navbar form .form-input input{
+      display: none;
+    }
+    #content  .navbar form .form-input button{
+      width: auto;
+      height: auto;
+      background: transparent;
+      border-radius: none;
+      color: #342e37;
+    }
+    #content .navbar form.show .form-input input{
+      display: block;
+      width: 100%;
+    }
+    #content .navbar form.show .form-input button{
+      width: 36px;
+      height: 100%;
+      background: rgb(146, 16, 16);;
+      color:  #f9f9f9
+    }
+    #content .navbar form.show ~ .notification{
+      display: none;
+    }
+    #content .navbar form.show ~ .profile{
+      display: none;
+    }
+  }
